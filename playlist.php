@@ -48,7 +48,7 @@ $owner =  new User($con, $playlist->getOwner());
 
 			echo "<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $playlistSong->getId() . "\", tempPlaylist, true)'>
+						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $playlistSong->getId() . "\", currentlyPlayingPlaylist, true)'>
 						<span class='trackNumber'>$i</span>
 					</div>
 
@@ -76,7 +76,7 @@ $owner =  new User($con, $playlist->getOwner());
 
 		<script>
 			var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
-			tempPlaylist = JSON.parse(tempSongIds);
+			currentlyPlayingPlaylist = JSON.parse(tempSongIds);
 		</script>
 
 	</ul>

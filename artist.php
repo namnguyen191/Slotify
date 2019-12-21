@@ -49,7 +49,7 @@ $artist = new Artist($con, $artistId);
 
 			echo "<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
+						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", currentlyPlayingPlaylist, true)'>
 						<span class='trackNumber'>$i</span>
 					</div>
 
@@ -77,7 +77,7 @@ $artist = new Artist($con, $artistId);
 
 		<script>
 			var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
-			tempPlaylist = JSON.parse(tempSongIds);
+			currentlyPlayingPlaylist = JSON.parse(tempSongIds);
 		</script>
 
 	</ul>

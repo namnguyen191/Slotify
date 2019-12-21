@@ -84,7 +84,7 @@ function prevSong() {
 	}
 	else {
 		currentIndex = currentIndex - 1;
-		setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+		setTrack(currentlyDisplayedPlaylist[currentIndex], currentlyDisplayedPlaylist, true);
 	}
 }
 
@@ -95,15 +95,15 @@ function nextSong() {
 		return;
 	}
 
-	if(currentIndex == currentPlaylist.length - 1) {
+	if(currentIndex == currentlyDisplayedPlaylist.length - 1) {
 		currentIndex = 0;
 	}
 	else {
 		currentIndex++;
 	}
 
-	var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
-	setTrack(trackToPlay, currentPlaylist, true);
+	var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentlyDisplayedPlaylist[currentIndex];
+	setTrack(trackToPlay, currentlyDisplayedPlaylist, true);
 }
 
 function setRepeat() {
@@ -131,7 +131,7 @@ function setShuffle() {
 	else {
 		//shuffle has been deactivated
 		//go back to regular playlist
-		currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
+		currentIndex = currentlyDisplayedPlaylist.indexOf(audioElement.currentlyPlaying.id);
 	}
 
 }
@@ -149,9 +149,9 @@ function shuffleArray(a) {
 
 function setTrack(trackId, newPlaylist, play) {
 
-	if(newPlaylist != currentPlaylist) {
-		currentPlaylist = newPlaylist;
-		shufflePlaylist = currentPlaylist.slice();
+	if(newPlaylist != currentlyDisplayedPlaylist) {
+		currentlyDisplayedPlaylist = newPlaylist;
+		shufflePlaylist = currentlyDisplayedPlaylist.slice();
 		shuffleArray(shufflePlaylist);
 	}
 
@@ -159,7 +159,7 @@ function setTrack(trackId, newPlaylist, play) {
 		currentIndex = shufflePlaylist.indexOf(trackId);
 	}
 	else {
-		currentIndex = currentPlaylist.indexOf(trackId);
+		currentIndex = currentlyDisplayedPlaylist.indexOf(trackId);
 	}
 	pauseSong();
 
