@@ -1,4 +1,4 @@
-<?php include("includes/includedFiles.php"); 
+<?php include("includes/includedFiles.php");
 
 if(isset($_GET['id'])) {
 	$albumId = $_GET['id'];
@@ -30,7 +30,7 @@ $artistId = $artist->getId();
 
 <div class="tracklistContainer">
 	<ul class="tracklist">
-		
+
 		<?php
 		$songIdArray = $album->getSongIds();
 
@@ -53,7 +53,8 @@ $artistId = $artist->getId();
 					</div>
 
 					<div class='trackOptions'>
-						<img class='optionsButton' src='assets/images/icons/more.png'>
+						<input type='hidden' class='songId' value='".$albumSong->getId()."'>
+						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
 					</div>
 
 					<div class='trackDuration'>
@@ -75,3 +76,13 @@ $artistId = $artist->getId();
 
 	</ul>
 </div>
+
+<nav class="optionsMenu">
+
+	<input type="hidden" class="songId">
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+	<div class="item">ADD ANOTHER ITEM</div>
+	<div class="item">ADD ANOTHER ITEM</div>
+
+
+</nav>

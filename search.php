@@ -21,7 +21,7 @@ else {
 	$(".searchInput").focus();
 
 	$(function(){
-		
+
 		$(".searchInput").keyup(function(){
 			clearTimeout(timer);
 			timer = setTimeout(function(){
@@ -78,7 +78,8 @@ if ($term=="") {
 					</div>
 
 					<div class='trackOptions'>
-						<img class='optionsButton' src='assets/images/icons/more.png'>
+						<input type='hidden' class='songId' value='".$albumSong->getId()."'>
+						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
 					</div>
 
 					<div class='trackDuration'>
@@ -153,3 +154,12 @@ if ($term=="") {
 	?>
 
 </div>
+
+<nav class="optionsMenu">
+
+	<input type="hidden" class="songId">
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+	<div class="item">ADD ANOTHER ITEM</div>
+	<div class="item">ADD ANOTHER ITEM</div>
+
+</nav>

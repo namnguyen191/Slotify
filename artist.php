@@ -33,7 +33,7 @@ $artist = new Artist($con, $artistId);
 <div class="tracklistContainer borderBottom">
 	<h2>SONGS</h2>
 	<ul class="tracklist">
-		
+
 		<?php
 		$songIdArray = $artist->getSongIds();
 
@@ -60,7 +60,8 @@ $artist = new Artist($con, $artistId);
 					</div>
 
 					<div class='trackOptions'>
-						<img class='optionsButton' src='assets/images/icons/more.png'>
+						<input type='hidden' class='songId' value='".$albumSong->getId()."'>
+						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
 					</div>
 
 					<div class='trackDuration'>
@@ -89,7 +90,7 @@ $artist = new Artist($con, $artistId);
 		$albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
 
 		while($row = mysqli_fetch_array($albumQuery)) {
-			
+
 
 
 
@@ -110,3 +111,12 @@ $artist = new Artist($con, $artistId);
 	?>
 
 </div>
+
+<nav class="optionsMenu">
+
+	<input type="hidden" class="songId">
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+	<div class="item">ADD ANOTHER ITEM</div>
+	<div class="item">ADD ANOTHER ITEM</div>
+
+</nav>
