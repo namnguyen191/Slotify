@@ -52,7 +52,7 @@
 		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
 			$encryptedPw = md5($pw);
 			$profilePic = "assets/images/profile-pics/head_emerald.png";
-			$date = date("Y-m-d");
+			$date = date('Y/m/d H:i:s');
 
 			$result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
 
@@ -108,7 +108,7 @@
 		}
 
 		private function validatePasswords($pw, $pw2) {
-			
+
 			if($pw != $pw2) {
 				array_push($this->errorArray, Constants::$passwordsDoNoMatch);
 				return;

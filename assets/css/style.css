@@ -521,3 +521,42 @@ input:focus {
 	color: #2ebd59;
   font-weight: 300;
 }
+
+.fileInfo .container h2 {
+	text-align: center;
+	padding-top: 25px;
+}
+
+.fileInfo .container input,
+.fileInfo .container button {
+	display: block;
+	margin: 16px auto;
+}
+
+.fileInfo .container input {
+	height: 50px;
+	width: 100%;
+	background: #1f1f1f;
+	border: none;
+	font-size: 18px;
+	font-weight: 300;
+	padding: 0 20px;
+}
+
+.fileInfo .container input[type="file"]{
+	padding: 11px 20px;
+}
+
+.fileInfo .container .message {
+	color: #2ebd59;
+  font-weight: 300;
+}
+
+.uploadYourMusicLink {
+	text-decoration: none;
+}
+
+.uploadMusicForm {
+	padding-left: 100px;
+	padding-right: 100px;
+}

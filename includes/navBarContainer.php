@@ -29,6 +29,9 @@
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="openPage('settings.php')" class="navItemLink"><?php echo $userLoggedIn->getFirstAndLastName(); ?></span>
 			</div>
+			<div class="navItem">
+				<a href="uploadYourMusic.php" class="uploadYourMusicLink"><span role="link" tabindex="0" href="uploadYourMusic.php" class="navItemLink">Up Load Your Songs!</span></a>
+			</div>
 		</div>
 
 

@@ -1,18 +1,12 @@
-<?php
-include 'includes/config.php';
+<!DOCTYPE html>
+<html>
+<body>
 
-date_default_timezone_set('America/Toronto');
+<form action="includes/handlers/file-upload-handler.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
 
-$current_date = date('Y/m/d H:i:s');
-
-echo $current_date."<br>";
-
-$query = mysqli_query($con, "INSERT INTO users  VALUES('','testing','John','Doe','johndoe@testmail.ca','123456','$current_date','testing image')");
-
-if($query){
-  echo "Insert successful";
-} else {
-  echo "Insert fail";
-}
-
- ?>
+</body>
+</html>
